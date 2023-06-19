@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Vazirmatn&display=swap');
+
+:root {
+  --color-primary: #7380ec;
+  --color-danger: #ff7782;
+  --collor-sucess: #41f1b6;
+  --color-warning: #ffbb55;
+  --color-white: #fff;
+  --color-info-dark: #7d8da1;
+  --color-info-light: #dc8da1;
+  --color-dark: #363949;
+  --color-light: rgba(132, 139, 200, 0.18);
+  --color-primary-variant: #111e88;
+  --color-dark-variant: #677483;
+  --color-green-dark: #03573b;
+  --color-background: #f6f6f9;
+
+  --card-border-radius: 2rem;
+  --border-radius-1: 0.4rem;
+  --border-radius-2: 0.8rem;
+  --border-radius-3: 1.2rem;
+  --card-padding: 1.8rem;
+  --padding-1: 1.2rem;
+  --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.dark-theme-variables {
+  --color-background: #181a1e;
+  --color-white: #202528;
+  --color-dark: #edeffd;
+  --color-dark-varient: #a3bdcc;
+  --color-light: rgba(0, 0, 0, .4);
+  --box-shadow: 0 2rem 3rem var(--color-light)
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  appearance: none;
+  border: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  font-weight: normal;
+}
+
+html {
+  font-family: 'Vazirmatn', sans-serif;
+  font-size: 14px;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--color-background);
+}
+
+.container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  grid-template-rows: 5rem 1fr;
+  grid-template-areas: "navbar navbar"
+    "sidebar main";
+}
+
+
+/* ------------------ Navbar ------------------------ */
+.navbar {
+  grid-area: navbar;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  background-color: var(--color-white);
+  border-radius: var(--card-border-radius);
+}
+
+.navbar .porfile {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+
+.navbar .porfile img {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+}
+
+.navbar .theme-toggler {
+  display: flex;
+  align-items: center;
+  color: var(--color-white);
+  background-color: var(--color-dark);
+  border-radius: var(--card-border-radius);
+}
+
+.navbar .theme-toggler span{
+  cursor: pointer;
+}
+
+.navbar .theme-toggler span.active{
+  padding: .2rem;
+  height: 100%;
+  background-color: var(--color-primary);
+  border-radius: var(--card-border-radius);
+}
+/* --------------------Side Bar ------------------------ */
+.sidebar{
+  height: 100%;
+  position: relative;
+}
+.sidebar .tab-container {
+  display: flex;
+  gap: .4rem;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+
+.sidebar .tab-container:hover {
+  margin-right: .8rem;
+  color: var(--color-primary);
+  transition: all 300ms ease;
+}
+
+.sidebar .tab-container.active {
+  background-color: var(--color-light);
+}
+
+.sidebar .tab-container:last-child {
+  position: absolute;
+  bottom: 5rem;
+}
+
+/* ----------------------- Main ------------------------------ */
+.main {
+  height: 100%;
+  grid-area: main;
+  background-color: black;
+}
