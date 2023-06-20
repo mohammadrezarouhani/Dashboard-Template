@@ -17,22 +17,22 @@
                 <img src="./src/profile-1.jpg" alt="">
                 <h3>محمدرضا روحانی</h3>
             </div>
-            <div class="theme-toggler">
-                <span class="material-symbols-sharp active" >light_mode</span>
+            <div class="theme-toggler" id="theme-toggler">
+                <span class="material-symbols-sharp" id="light-mode">light_mode</span>
 
-                <span class="material-symbols-sharp " >dark_mode</span>
+                <span class="material-symbols-sharp " id="dark-mode">dark_mode</span>
             </div>
         </div>
 
         <div class="sidebar">
-            <div class="tab-container active">
+            <div class="tab-container" id="dashboard-side">
                 <span class="material-symbols-sharp">dashboard</span>
                 <div class="tab ">
                     <h3>داشبورد</h3>
                 </div>
             </div>
 
-            <div class="tab-container">
+            <div class="tab-container" id="products-side">
                 <span class="material-symbols-sharp">
                     inventory_2
                 </span>
@@ -41,7 +41,7 @@
                 </div>
             </div>
 
-            <div class="tab-container">
+            <div class="tab-container" id="users-side">
                 <span class="material-symbols-sharp">
                     group
                 </span>
@@ -57,11 +57,123 @@
                 <div class="tab ">
                     <h3>خروج از سیستم</h3>
                 </div>
-            </div>  
+            </div>
         </div>
+        <!------------------------ End of Sidebar --------------------------->
 
         <div class="main">
+            <h1 id="title">داشبورد</h1>
+            <div class="dashboard" id="dashboard-main">
+                <div class="card-container">
+                    <div class="card">
+                        <span class="material-symbols-sharp" style="color: var(--color-green-dark);">
+                            real_estate_agent
+                        </span>
+                        <h2>
+                            فروش کل
+                        </h2>
+                        <h3>
+                            180000IR
+                        </h3>
+                    </div>
 
+                    <div class="card">
+                        <span class="material-symbols-sharp" style="color: var(--color-info-light);">
+                            group
+                        </span>
+                        <h2>
+                            کاربران
+                        </h2>
+                        <h3>
+                            56
+                        </h3>
+                    </div>
+
+                    <div class="card">
+                        <span class="material-symbols-sharp" style="color: var(--color-primary);">
+                            inventory
+                        </span>
+                        <h2>
+                            محصولات
+                        </h2>
+                        <h3>
+                            23
+                        </h3>
+                    </div>
+                </div>
+                <!-- ----- End of Card Container-------------->
+
+                <div class="recent-shipment">
+                    <div class="shipment-container">
+                        <div class="shipment">
+                            <span class="material-symbols-sharp">local_shipping</span>
+                            <P>بسته های کاربر محمد امین رضایی به مقصد فرستاده شد </P>
+                        </div>
+                        <div class="shipment">
+                            <span class="material-symbols-sharp">local_shipping</span>
+                            <P>بسته های کاربر محمد امین رضایی به مقصد فرستاده شد </P>
+                        </div>
+                        <div class="shipment">
+                            <span class="material-symbols-sharp">local_shipping</span>
+                            <P>بسته های کاربر محمد امین رضایی به مقصد فرستاده شد </P>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ---------- End of Recent Product --------- -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>نام</th>
+
+                            <th>نام خانوادگی </th>
+
+                            <th> شماره تلفن </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>محمدرضا </td>
+                            <td>روحانی</td>
+                            <td>+914568321</td>
+                        </tr>
+                        <tr>
+                            <td>محمدرضا </td>
+                            <td>روحانی</td>
+                            <td>+914568321</td>
+                        </tr>
+                        <tr>
+                            <td>محمدرضا </td>
+                            <td>روحانی</td>
+                            <td>+914568321</td>
+                        </tr>
+                        <tr>
+                            <td>محمدرضا </td>
+                            <td>روحانی</td>
+                            <td>+914568321</td>
+                        </tr>
+                        <tr>
+                            <td>محمدرضا </td>
+                            <td>روحانی</td>
+                            <td>+914568321</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- ---------- End of Table --------- -->
+            </div>
+
+            <!-- ------------------ End of DashBoard------------------------->
+            
+            <div class="products" id="products-main">
+                <p>product</p>
+            </div>
+            <!-- ----------------------- End of Products -------------------------->
+            
+            <div class="users" id="users-main">
+                <p>users</p>
+            </div>
+
+            <!-- ---------------------------- End of Users ----------------------------- -->
         </div>
     </div>
 

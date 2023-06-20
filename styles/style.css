@@ -5,7 +5,7 @@
   --color-danger: #ff7782;
   --collor-sucess: #41f1b6;
   --color-warning: #ffbb55;
-  --color-white: #fff;
+  --color-white: #ffffff;
   --color-info-dark: #7d8da1;
   --color-info-light: #dc8da1;
   --color-dark: #363949;
@@ -55,19 +55,23 @@ html {
 
 body {
   height: 100vh;
-  width: 100vw;
   background-color: var(--color-background);
+  color: var(--color-dark);
+}
+
+#title{
+  margin: 0 0 2rem 0;
 }
 
 .container {
+  width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 15rem 1fr;
+  grid-template-columns: 14rem 1fr;
   grid-template-rows: 5rem 1fr;
   grid-template-areas: "navbar navbar"
     "sidebar main";
 }
-
 
 /* ------------------ Navbar ------------------------ */
 .navbar {
@@ -100,27 +104,30 @@ body {
   border-radius: var(--card-border-radius);
 }
 
-.navbar .theme-toggler span{
+.navbar .theme-toggler span {
   cursor: pointer;
+  font-size: 1.4rem;
 }
 
-.navbar .theme-toggler span.active{
+.navbar .theme-toggler span.active {
   padding: .2rem;
   height: 100%;
   background-color: var(--color-primary);
   border-radius: var(--card-border-radius);
 }
+
 /* --------------------Side Bar ------------------------ */
-.sidebar{
+.sidebar {
   height: 100%;
   position: relative;
 }
+
 .sidebar .tab-container {
   display: flex;
   gap: .4rem;
   padding: 1rem;
   cursor: pointer;
-  transition: all 300ms ease;
+  transition: all 200ms ease;
 }
 
 .sidebar .tab-container:hover {
@@ -142,5 +149,118 @@ body {
 .main {
   height: 100%;
   grid-area: main;
-  background-color: black;
+  padding: 2rem;
 }
+
+
+/* ------------------------- Dashboard ------------------------------ */
+.main .dashboard {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "card shipment"
+    "table shipment";
+}
+
+/* ------ Card Container -------- */
+.main .dashboard .card-container {
+  grid-area: card;
+  display: flex;
+  gap: 2rem;
+}
+
+.main .dashboard .card-container .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.2rem;
+  padding: 1rem;
+  width: 30%;
+  height: 80%;
+  background-color: var(--color-white);
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+}
+
+.main .dashboard .card-container .card:hover {
+  box-shadow: none;
+  transition: all 300ms ease;
+}
+
+
+
+/* -------- Recent shipment ---------  */
+.main .dashboard .recent-shipment {
+  grid-area: shipment;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-white);
+  padding: var(--card-padding);
+  border-radius: var(--card-border-radius);
+  margin: 0 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+.main .dashboard .recent-shipment:hover {
+  box-shadow: none;
+}
+
+
+.main .dashboard .recent-shipment .shipment{
+  display: flex;
+  gap: .4rem;
+  background-color: var(--color-primary);
+  padding: var(--card-padding);
+  border-radius: var(--card-border-radius);
+  margin: 1rem 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* --------------- Recent Users --------- */
+
+.main .dashboard table {
+  cursor: pointer;
+  background: var(--color-white);
+  text-align: center;
+  width: 100%;
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--box-shadow);
+  padding: var(--card-padding);
+  transition: all 300ms ease;
+}
+
+.main .dashboard table:hover {
+  box-shadow: none;
+}
+
+.main .dashboard table tr> td,th {
+  height: 2.8rem;
+  border-bottom: 1px solid var(--color-light);
+  color: var(--color-dark);
+}
+
+.main .dashboard table tr:last-child td {
+  border: none;
+}
+
+/* -------------------------End of DashBoard ------------------------------ */
+
+
+/* ------------------------------ Products -----------------------------------*/
+
+.main .products{
+  display: none;
+}
+/* -------------------------------End of Products ------------------------------- */
+
+
+
+/* ------------------------------ Users -----------------------------------*/
+
+.main .users{
+  display: none;
+}
+/* -------------------------------End of Users ------------------------------- */
