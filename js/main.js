@@ -19,9 +19,9 @@ const mainTitle=document.getElementById('title')
 dashboarSidebar.classList.add('active')
 lightMode.classList.add('active')
 
-dashboardMain.style.display = 'grid'
+dashboardMain.style.display = 'none'
 productsMain.style.display = 'none'
-usersMain.style.display = 'none'
+usersMain.style.display = 'grid'
 
 dashboarSidebar.onclick = onDashBoardClick
 productSidebar.onclick = onProductTabClick
@@ -38,7 +38,6 @@ function onDashBoardClick() {
     productsMain.style.display = 'none'
     usersMain.style.display = 'none'
 
-    mainTitle.innerText="داشبورد"
 }
 
 function onProductTabClick() {
@@ -47,10 +46,9 @@ function onProductTabClick() {
     usersSidebar.classList.remove('active')
 
     dashboardMain.style.display = 'none'
-    productsMain.style.display = 'flex'
+    productsMain.style.display = 'grid'
     usersMain.style.display = 'none'
 
-    mainTitle.innerText='محصولات'
 }
 
 function onUsersTabClick() {
@@ -60,9 +58,8 @@ function onUsersTabClick() {
 
     dashboardMain.style.display = 'none'
     productsMain.style.display = 'none'
-    usersMain.style.display = 'flex'
+    usersMain.style.display = 'grid'
 
-    mainTitle.innerText='کاربران'
 }
 
 function onThemeTogglerClick(){

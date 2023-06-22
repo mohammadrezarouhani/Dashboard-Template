@@ -13,15 +13,18 @@
   --color-primary-variant: #111e88;
   --color-dark-variant: #677483;
   --color-green-dark: #03573b;
+  --color-green-light: #90EE90;
   --color-background: #f6f6f9;
 
   --card-border-radius: 2rem;
+  --image-border-radius: 2rem 2rem 0rem 0;
   --border-radius-1: 0.4rem;
   --border-radius-2: 0.8rem;
   --border-radius-3: 1.2rem;
   --card-padding: 1.8rem;
   --padding-1: 1.2rem;
   --box-shadow: 0 2rem 3rem var(--color-light);
+  --box-shadow-1: 0 0rem 1rem var(--color-green-light);
 }
 
 .dark-theme-variables {
@@ -53,14 +56,17 @@ html {
   font-size: 14px;
 }
 
+input {
+  font-size: 1.2rem;
+  background-color: var(--color-white);
+  color: var(--color-dark) !important;
+  padding: 5px;
+}
+
 body {
   height: 100vh;
   background-color: var(--color-background);
   color: var(--color-dark);
-}
-
-#title{
-  margin: 0 0 2rem 0;
 }
 
 .container {
@@ -157,9 +163,16 @@ body {
 .main .dashboard {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas: "card shipment"
+  grid-template-rows: 5rem 1fr 1fr;
+  grid-template-areas: "header header"
+    "card shipment"
     "table shipment";
+}
+
+/* ---------------- Dash Header ----------------- */
+
+.main .dashboard .header {
+  grid-area: header;
 }
 
 /* ------ Card Container -------- */
@@ -208,7 +221,7 @@ body {
 }
 
 
-.main .dashboard .recent-shipment .shipment{
+.main .dashboard .recent-shipment .shipment {
   display: flex;
   gap: .4rem;
   background-color: var(--color-primary);
@@ -236,7 +249,8 @@ body {
   box-shadow: none;
 }
 
-.main .dashboard table tr> td,th {
+.main .dashboard table tr>td,
+th {
   height: 2.8rem;
   border-bottom: 1px solid var(--color-light);
   color: var(--color-dark);
@@ -249,18 +263,115 @@ body {
 /* -------------------------End of DashBoard ------------------------------ */
 
 
-/* ------------------------------ Products -----------------------------------*/
+/* ------------------------------ Products & User -----------------------------------*/
 
-.main .products{
-  display: none;
+.main .products , .users {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 5rem 1fr;
+  grid-template-areas: "header "
+    "content";
+  width: 100%;
 }
+
+
+.main .header {
+  grid-area: header;
+  display: flex;
+  width: inherit;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main .header input {
+  height: 2.8rem;
+  border-radius: var(--border-radius-2);
+}
+
+.main .header span {
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(1, 93, 1);
+  border-radius: 50% !important;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-2);
+  box-shadow: var(--box-shadow-1);
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+
+.main  .header span:hover {
+  box-shadow: none;
+  transition: all 300ms ease;
+}
+
+/* -------- Product Main ----------*/
+.main .products .content {
+  grid-area: content;
+}
+
+.main .products .content .products-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.main .products .content .products-container .products {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  background-color: var(--color-white);
+  border-radius: 2rem;
+  box-shadow: var(--box-shadow);
+}
+
+.main .products .content .products-container .products img {
+  border-radius: var(--image-border-radius);
+}
+
+.main .products .content .products-container .products .info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: .8rem;
+  gap: 1rem;
+}
+
+.main .products .content .products-container .products .info input {
+  width: 100%;
+}
+
 /* -------------------------------End of Products ------------------------------- */
 
 
 
 /* ------------------------------ Users -----------------------------------*/
 
-.main .users{
-  display: none;
+.main .users {
+  display: grid;
 }
+
+.main .users table{
+  text-align: center;
+}
+
+.main .users table img{
+  width: 6rem;
+  height: 6rem;
+  border-radius: 30%;
+}
+
+.main .users table tbody tr{
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+  background-color: var(--color-white);
+  border-radius: var(--card-border-radius);
+  
+}
+
 /* -------------------------------End of Users ------------------------------- */
