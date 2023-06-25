@@ -19,17 +19,17 @@ const mainTitle=document.getElementById('title')
 dashboarSidebar.classList.add('active')
 lightMode.classList.add('active')
 
-dashboardMain.style.display = 'none'
+dashboardMain.style.display = 'grid'
 productsMain.style.display = 'none'
-usersMain.style.display = 'grid'
+usersMain.style.display = 'none'
 
-dashboarSidebar.onclick = onDashBoardClick
+dashboarSidebar.onclick = onDashboardTabClick
 productSidebar.onclick = onProductTabClick
 usersSidebar.onclick = onUsersTabClick
 themeToggler.onclick=onThemeTogglerClick
 
 
-function onDashBoardClick() {
+function onDashboardTabClick() {
     dashboarSidebar.classList.add('active')
     productSidebar.classList.remove('active')
     usersSidebar.classList.remove('active')

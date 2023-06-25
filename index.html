@@ -7,7 +7,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="./styles/style.css">
-    <title>Document</title>
+    <title>Dashboard</title>
 </head>
 
 <body>
@@ -62,6 +62,12 @@
         <!------------------------ End of Sidebar --------------------------->
 
         <div class="main">
+            <div class="popup" id="popup">
+                <div class="message" id="message">
+                    please fillout all fields
+                </div>
+            </div>
+
             <div class="dashboard" id="dashboard-main">
                 <div class="header">
                     <h1 id="title">داشبورد</h1>
@@ -133,101 +139,79 @@
                             <th> شماره تلفن </th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>محمدرضا </td>
-                            <td>روحانی</td>
-                            <td>+914568321</td>
-                        </tr>
-                        <tr>
-                            <td>محمدرضا </td>
-                            <td>روحانی</td>
-                            <td>+914568321</td>
-                        </tr>
-                        <tr>
-                            <td>محمدرضا </td>
-                            <td>روحانی</td>
-                            <td>+914568321</td>
-                        </tr>
-                        <tr>
-                            <td>محمدرضا </td>
-                            <td>روحانی</td>
-                            <td>+914568321</td>
-                        </tr>
-                        <tr>
-                            <td>محمدرضا </td>
-                            <td>روحانی</td>
-                            <td>+914568321</td>
-                        </tr>
+                    <tbody id="recent-user-table">
+                        <!-- Recent User here -->
                     </tbody>
                 </table>
                 <!-- ---------- End of Table --------- -->
             </div>
 
-            <!-- ------------------ End of DashBoard------------------------->
+            <!-------------------- End of DashBoard------------------------->
 
             <div class="products" id="products-main">
+                <!-- Modal -->
+                <div class="overlay" id="overlay-1">
+                    <div class="modal">
+                        <div class="close">
+                            <span class="material-symbols-sharp"
+                                onclick="document.getElementById('overlay-1').style.display='none'">
+                                close
+                            </span>
+                        </div>
+                        <input type="file" accept="image/*" >
+
+                        <input type="text" placeholder="نام کالا" id="productNameInput">
+                        <input type="text" placeholder="قیمت کالا" id="prodPriceInput">
+                        <input type="button" value="افزودن" id="productAdd">
+                    </div>
+                </div>
+
                 <div class="header">
                     <h1 id="title">محصولات</h1>
                     <input type="text" id="products-search" placeholder="جستجو">
-                    <span class="material-symbols-sharp">add</span>
+                    <span class="material-symbols-sharp" onclick="document.getElementById('overlay-1').style.display='block'">
+                        add
+                    </span>
                 </div>
                 <div class="content">
-                    <div class="products-container">
-                        <div class="products">
+                    <div class="products-container" id="products-container">
+                        
+                        <!-- <div class="products">
                             <img src="./src/prd1.jpg">
                             <div class="info">
                                 <h2>ساعت هوشمند</h2>
                                 <h3>120000IR</h3>
                                 <input type="button" value="Add to Card">
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="products">
-                            <img src="./src/prd1.jpg">
-                            <div class="info">
-                                <h2>ساعت هوشمند</h2>
-                                <h3>120000IR</h3>
-                                <input type="button" value="Add to Card">
-                            </div>
-                        </div>
-
-                        <div class="products">
-                            <img src="./src/prd1.jpg">
-                            <div class="info">
-                                <h2>ساعت هوشمند</h2>
-                                <h3>120000IR</h3>
-                                <input type="button" value="Add to Card">
-                            </div>
-                        </div>
-
-                        <div class="products">
-                            <img src="./src/prd1.jpg">
-                            <div class="info">
-                                <h2>ساعت هوشمند</h2>
-                                <h3>120000IR</h3>
-                                <input type="button" value="Add to Card">
-                            </div>
-                        </div>
-
-                        <div class="products">
-                            <img src="./src/prd1.jpg">
-                            <div class="info">
-                                <h2>ساعت هوشمند</h2>
-                                <h3>120000IR</h3>
-                                <input type="button" value="Add to Card">
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
             <!-- ----------------------- End of Products -------------------------->
 
             <div class="users" id="users-main">
+                <div class="overlay" id="overlay-2">
+                    <div class="modal">
+                        <div class="close">
+                            <span class="material-symbols-sharp"
+                                onclick="document.getElementById('overlay-2').style.display='none'">
+                                close
+                            </span>
+                        </div>
+                        <input type="file" id="imageUpload" accept="image/*" >
+
+                        <input type="text" placeholder="نام " id="userNameInput">
+                        <input type="text" placeholder="نام خانوادگی" id="amilyInput">
+                        <input type="text" placeholder="شماره تلفن" id="phoneInput">
+                        <input type="button" value="افزودن" id="userAdd">    
+                    </div>
+                </div>
+
                 <div class="header">
                     <h1 id="title">کاربران</h1>
                     <input type="text" id="products-search" placeholder="جستجو">
-                    <span class="material-symbols-sharp">add</span>
+                    <span class="material-symbols-sharp" onclick="document.getElementById('overlay-2').style.display='block'">add</span>
                 </div>
 
                 <table>
@@ -237,19 +221,19 @@
                             <th>نام</th>
                             <th>نام خانوادگی</th>
                             <th>شماره تلفن</th>
-                            <th>کل خرید ها </th>
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
+                    <tbody id="users-table">
+                        <!-- <tr>
                             <td><img src="./src/profile-2.jpg" alt="..."></td>
                             <td>امیر </td>
                             <td>رستمی</td>
                             <td>+9057622924</td>
                             <td>18000000ريال</td>
-                            <td>جزییات</td>
-                        </tr>
+                            <td><a href="#">جزییات</a></td>
+                        </tr> -->
+
                     </tbody>
                 </table>
             </div>
@@ -257,8 +241,8 @@
             <!-- ---------------------------- End of Users ----------------------------- -->
         </div>
     </div>
-
-    <script src="./js/main.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/data.js"></script>
 </body>
 
 </html>
