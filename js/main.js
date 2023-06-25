@@ -1,75 +1,71 @@
+$(document).ready(function() {
+  const mainElement = $('.main');
+  const themeToggler = $('#theme-toggler');
+  const darkMode = $('#dark-mode');
+  const lightMode = $('#light-mode');
+  let theme = false;
 
-const mainElement = document.querySelector('.main')
+  const dashboardSidebar = $('#dashboard-side');
+  const productSidebar = $('#products-side');
+  const usersSidebar = $('#users-side');
 
-const themeToggler =document.getElementById('theme-toggler')
-const darkMode=document.getElementById('dark-mode')
-const lightMode=document.getElementById('light-mode')
-let theme=false
+  const dashboardMain = $('#dashboard-main');
+  const productsMain = $('#products-main');
+  const usersMain = $('#users-main');
 
-const dashboarSidebar = document.getElementById('dashboard-side')
-const productSidebar = document.getElementById('products-side')
-const usersSidebar = document.getElementById('users-side')
+  const mainTitle = $('#title');
 
-const dashboardMain = document.getElementById('dashboard-main')
-const productsMain = document.getElementById('products-main')
-const usersMain = document.getElementById('users-main')
+  dashboardSidebar.addClass('active');
+  lightMode.addClass('active');
 
-const mainTitle=document.getElementById('title')
+  dashboardMain.css('display', 'grid');
+  productsMain.css('display', 'none');
+  usersMain.css('display', 'none');
 
-dashboarSidebar.classList.add('active')
-lightMode.classList.add('active')
+  dashboardSidebar.on('click', onDashboardTabClick);
+  productSidebar.on('click', onProductTabClick);
+  usersSidebar.on('click', onUsersTabClick);
+  themeToggler.on('click', onThemeTogglerClick);
 
-dashboardMain.style.display = 'grid'
-productsMain.style.display = 'none'
-usersMain.style.display = 'none'
+  function onDashboardTabClick() {
+    dashboardSidebar.addClass('active');
+    productSidebar.removeClass('active');
+    usersSidebar.removeClass('active');
 
-dashboarSidebar.onclick = onDashboardTabClick
-productSidebar.onclick = onProductTabClick
-usersSidebar.onclick = onUsersTabClick
-themeToggler.onclick=onThemeTogglerClick
+    dashboardMain.css('display', 'grid');
+    productsMain.css('display', 'none');
+    usersMain.css('display', 'none');
+  }
 
+  function onProductTabClick() {
+    dashboardSidebar.removeClass('active');
+    productSidebar.addClass('active');
+    usersSidebar.removeClass('active');
 
-function onDashboardTabClick() {
-    dashboarSidebar.classList.add('active')
-    productSidebar.classList.remove('active')
-    usersSidebar.classList.remove('active')
+    dashboardMain.css('display', 'none');
+    productsMain.css('display', 'grid');
+    usersMain.css('display', 'none');
+  }
 
-    dashboardMain.style.display = 'grid'
-    productsMain.style.display = 'none'
-    usersMain.style.display = 'none'
+  function onUsersTabClick() {
+    dashboardSidebar.removeClass('active');
+    productSidebar.removeClass('active');
+    usersSidebar.addClass('active');
 
-}
+    dashboardMain.css('display', 'none');
+    productsMain.css('display', 'none');
+    usersMain.css('display', 'grid');
+  }
 
-function onProductTabClick() {
-    dashboarSidebar.classList.remove('active')
-    productSidebar.classList.add('active')
-    usersSidebar.classList.remove('active')
-
-    dashboardMain.style.display = 'none'
-    productsMain.style.display = 'grid'
-    usersMain.style.display = 'none'
-
-}
-
-function onUsersTabClick() {
-    dashboarSidebar.classList.remove('active')
-    productSidebar.classList.remove('active')
-    usersSidebar.classList.add('active')
-
-    dashboardMain.style.display = 'none'
-    productsMain.style.display = 'none'
-    usersMain.style.display = 'grid'
-
-}
-
-function onThemeTogglerClick(){
-    if(!theme){
-        darkMode.classList.add('active')
-        lightMode.classList.remove('active')
-    }else{
-        lightMode.classList.add('active')
-        darkMode.classList.remove('active')
+  function onThemeTogglerClick() {
+    if (!theme) {
+      darkMode.addClass('active');
+      lightMode.removeClass('active');
+    } else {
+      lightMode.addClass('active');
+      darkMode.removeClass('active');
     }
-    theme=!theme
-    document.body.classList.toggle('dark-theme-variables');
-}
+    theme = !theme;
+    $('body').toggleClass('dark-theme-variables');
+  }
+});

@@ -18,30 +18,6 @@ const users = [
         family: 'مفیدی',
         phone: '+905000000',
         image: 'src\\profile-2.jpg'
-    }, {
-        id: 4,
-        name: 'زهرا',
-        family: 'حمزای',
-        phone: '+905000000',
-        image: 'src\\profile-1.jpg'
-    }, {
-        id: 5,
-        name: 'احسان ',
-        family: 'علامه',
-        phone: '+905000000',
-        image: 'src\\profile-3.jpg'
-    }, {
-        id: 6,
-        name: 'محمد امیر',
-        family: 'قربانی',
-        phone: '+905000000',
-        image: 'src\\profile-3.jpg'
-    }, {
-        id: 7,
-        name: 'عرفان',
-        family: 'باقری',
-        phone: '+905000000',
-        image: 'src\\profile-2.jpg'
     }
 ]
 
@@ -100,7 +76,7 @@ function renderProductCard() {
 
     products.forEach((el) => {
         let div = document.createElement('div')
-        div.classList.add('products')
+        div.classList.add('product')
 
         let img = document.createElement('img')
         img.src = el.image
@@ -210,7 +186,7 @@ function addProduct() {
     const productPriceInput = document.getElementById('prodPriceInput')
 
     if (productNameInput.value && productPriceInput.value) {
-        products.push(
+        products.unshift(
             {
                 name: productNameInput.value,
                 price: productPriceInput.value,
